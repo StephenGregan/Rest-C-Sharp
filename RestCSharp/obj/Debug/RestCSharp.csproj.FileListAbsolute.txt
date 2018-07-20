@@ -1,0 +1,7 @@
+C:\Users\Ronan\source\repos\RestCSharp\RestCSharp\bin\Debug\RestCSharp.exe.config
+C:\Users\Ronan\source\repos\RestCSharp\RestCSharp\bin\Debug\RestCSharp.exe
+C:\Users\Ronan\source\repos\RestCSharp\RestCSharp\bin\Debug\RestCSharp.pdb
+C:\Users\Ronan\source\repos\RestCSharp\RestCSharp\obj\Debug\RestCSharp.csprojResolveAssemblyReference.cache
+C:\Users\Ronan\source\repos\RestCSharp\RestCSharp\obj\Debug\RestCSharp.csproj.CoreCompileInputs.cache
+C:\Users\Ronan\source\repos\RestCSharp\RestCSharp\obj\Debug\RestCSharp.exe
+C:\Users\Ronan\source\repos\RestCSharp\RestCSharp\obj\Debug\RestCSharp.pdb
