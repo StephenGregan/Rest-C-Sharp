@@ -104,74 +104,75 @@ namespace RestCSharp
         static string AzureBlobDatasourceDefinition(string connectionString, string tableName)
         {
             return @"
-{
-  ""description"": ""azure blob datasource"",
-  ""type"": ""azureblob"",
-  ""credentials"": { ""connectionString"": """ + connectionString + @""" },
-  ""container"": { ""name"": """ + tableName + @""" },
-  ""dataChangeDetectionPolicy"": {
-    ""@odata.type"": ""#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy"",
-    ""highWaterMarkColumnName"": ""highwatermark""
-  },
-  ""dataDeletionDetectionPolicy"": {
-    ""@odata.type"": ""#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy"",
-  ""softDeleteColumnName"": ""deleted"",
-  ""softDeleteMarkerValue"": ""true""
-  }
-}
-";
+                        {
+                          ""description"": ""azure blob datasource"",
+                          ""type"": ""azureblob"",
+                          ""credentials"": { ""connectionString"": """ + connectionString + @""" },
+                          ""container"": { ""name"": """ + tableName + @""" },
+                          ""dataChangeDetectionPolicy"": {
+                            ""@odata.type"": ""#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy"",
+                            ""highWaterMarkColumnName"": ""highwatermark""
+                          },
+                          ""dataDeletionDetectionPolicy"": {
+                            ""@odata.type"": ""#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy"",
+                          ""softDeleteColumnName"": ""deleted"",
+                          ""softDeleteMarkerValue"": ""true""
+                          }
+                        }
+                        ";
         }
 
         static string IndexDefinition()
         {
             return @"
                         {
-                            ""fields"": [{
-                                        ""name"": ""id"",
-		                                ""type"": ""Edm.Int32"",
-		                                ""searchable"": false,
-		                                ""filterable"": false,
-		                                ""retrievable"": true,
-		                                ""sortable"": false,
-		                                ""facetable"": false,
-		                                ""key"": false
-                                    }, {
-		                                ""name"": ""versionValue"",
-		                                ""type"": ""Edm.Int32"",
-		                                ""searchable"": false,
-		                                ""filterable"": true,
-		                                ""retrievable"": true,
-		                                ""sortable"": true,
-		                                ""facetable"": true,
-		                                ""key"": false
-		                                }, {
-		                                ""name"": ""uuid"",
-		                                ""type"": ""Edm.String"",
-		                                ""searchable"": true,
-		                                ""filterable"": true,
-		                                ""retrievable"": true,
-		                                ""sortable"": true,
-		                                ""facetable"": true,
-		                                ""key"": false
-	                                }, {
-		                                ""name"": ""createdBy"",
-		                                ""type"": ""Edm.String"",
-		                                ""searchable"": true,
-		                                ""filterable"": true,
-		                                ""retrievable"": true,
-		                                ""sortable"": true,
-		                                ""facetable"": true,
-		                                ""key"": false
-	                                }, {
-		                                ""name"": ""createdDate"",
-		                                ""type"": ""Edm.String"",
-		                                ""searchable"": true,
-		                                ""filterable"": true,
-		                                ""retrievable"": true,
-		                                ""sortable"": true,
-		                                ""facetable"": true,
-		                                ""key"": false
-	                                },{
+                                ""fields"": [
+                                        {
+                                            ""name"": ""id"",
+		                                    ""type"": ""Edm.Int32"",
+		                                    ""searchable"": false,
+		                                    ""filterable"": false,
+		                                    ""retrievable"": true,
+		                                    ""sortable"": false,
+		                                    ""facetable"": false,
+		                                    ""key"": false
+                                        }, {
+		                                    ""name"": ""versionValue"",
+		                                    ""type"": ""Edm.Int32"",
+		                                    ""searchable"": false,
+		                                    ""filterable"": true,
+		                                    ""retrievable"": true,
+		                                    ""sortable"": true,
+		                                    ""facetable"": true,
+		                                    ""key"": false
+		                                    }, {
+		                                    ""name"": ""uuid"",
+		                                    ""type"": ""Edm.String"",
+		                                    ""searchable"": true,
+		                                    ""filterable"": true,
+		                                    ""retrievable"": true,
+		                                    ""sortable"": true,
+		                                    ""facetable"": true,
+		                                    ""key"": false
+	                                    }, {
+		                                    ""name"": ""createdBy"",
+		                                    ""type"": ""Edm.String"",
+		                                    ""searchable"": true,
+		                                    ""filterable"": true,
+		                                    ""retrievable"": true,
+		                                    ""sortable"": true,
+		                                    ""facetable"": true,
+		                                    ""key"": false
+	                                    }, {
+		                                    ""name"": ""createdDate"",
+		                                    ""type"": ""Edm.String"",
+		                                    ""searchable"": true,
+		                                    ""filterable"": true,
+		                                    ""retrievable"": true,
+		                                    ""sortable"": true,
+		                                    ""facetable"": true,
+		                                    ""key"": false
+	                                    }, {
 	                                        ""name"": ""lastModifiedBy"",
                                             ""type"": ""Edm.String"",
 	                                        ""searchable"": true,
@@ -993,13 +994,13 @@ namespace RestCSharp
         static string IndexerDefinition(string dataSourceName, string indexName)
         {
             return @"
-{
-  ""description"": ""indexer for azure sql datasource"",
-  ""dataSourceName"": """ + dataSourceName + @""",
-  ""targetIndexName"": """ + indexName + @""",
-  ""schedule"": { ""interval"": ""P1D"" }
-}
-";
+                        {
+                          ""description"": ""indexer for azure sql datasource"",
+                          ""dataSourceName"": """ + dataSourceName + @""",
+                          ""targetIndexName"": """ + indexName + @""",
+                          ""schedule"": { ""interval"": ""P1D"" }
+                        }
+                        ";
         }
     }
 }
