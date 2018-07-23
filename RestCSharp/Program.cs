@@ -64,7 +64,7 @@ namespace RestCSharp
             string datasourceDefinition)
         {
             var request = new HttpRequestMessage(HttpMethod.Put,
-                $"https://{name}.search.windows.net/datasources/{datasource}?api-version=2016-09-01");
+                $"https://{searchServiceName}.search.windows.net/datasources/{dataSourceName}?api-version=2015-02-28-Preview");
             request.Headers.Add("api-key", apiKey);
             var body = new StringContent(datasourceDefinition, Encoding.UTF8, "application/json");
             request.Content = body;
@@ -75,7 +75,7 @@ namespace RestCSharp
             string indexDefinition)
         {
             var request = new HttpRequestMessage(HttpMethod.Put,
-                $"https://{name}.search.windows.net/indexes/{index}?api-version=2016-09-01");
+                $"https://{searchServiceName}.search.windows.net/indexes/{indexName}?api-version=2015-02-28-Preview");
             request.Headers.Add("api-key", apiKey);
             var body = new StringContent(indexDefinition, Encoding.UTF8, "application/json");
             request.Content = body;
@@ -86,7 +86,7 @@ namespace RestCSharp
             string indexerDefinition)
         {
             var request = new HttpRequestMessage(HttpMethod.Put,
-                $"https://{name}.search.windows.net/indexers/{indexer}?api-version=2015-02-28-Preview");
+                $"https://{searchServiceName}.search.windows.net/indexers/{indexerName}?api-version=2015-02-28-Preview");
             request.Headers.Add("api-key", apiKey);
             var body = new StringContent(indexerDefinition, Encoding.UTF8, "application/json");
             request.Content = body;
@@ -96,7 +96,7 @@ namespace RestCSharp
         static HttpRequestMessage RunIndexerRequest(string searchServiceName, string apiKey, string indexerName)
         {
             var request = new HttpRequestMessage(HttpMethod.Post,
-                $"https://{name}.search.windows.net/indexers/{indexer}/run?api-version=2015-02-28-Preview");
+                $"https://{searchServiceName}.search.windows.net/indexers/{indexerName}/run?api-version=2015-02-28-Preview");
             request.Headers.Add("api-key", apiKey);
             return request;
         }
@@ -994,13 +994,13 @@ namespace RestCSharp
         static string IndexerDefinition(string dataSourceName, string indexName)
         {
             return @"
-                        {
-                          ""description"": ""indexer for azure sql datasource"",
-                          ""dataSourceName"": """ + dataSourceName + @""",
-                          ""targetIndexName"": """ + indexName + @""",
-                          ""schedule"": { ""interval"": ""P1D"" }
-                        }
-                        ";
+                    {
+                        ""description"": ""indexer for azure blob storage database"",
+                        ""dataSourceName"":  """ + dataSourceName + @""",
+                        ""targetIndexName"": """ + indexName + @""",
+                        ""schedule"": { ""interval"": ""P1D""}
+                    }
+                    ";
         }
     }
 }
