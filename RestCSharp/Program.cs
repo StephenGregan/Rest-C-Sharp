@@ -983,24 +983,23 @@ namespace RestCSharp
 	                                        ""facetable"": true,
 	                                        ""key"": false
                                         }],
-                                    ""corsOptions"": 
-                                                    {
+                                    ""corsOptions"": {
                                                         ""allowedOrigins"": [""*""],
                                                         ""maxAgeInSeconds"": 300
-                                                    }
+                                                     }
                         }";
         }
 
         static string IndexerDefinition(string dataSourceName, string indexName)
         {
             return @"
-                    {
-                        ""description"": ""indexer for azure blob storage database"",
-                        ""dataSourceName"":  """ + dataSourceName + @""",
-                        ""targetIndexName"": """ + indexName + @""",
-                        ""schedule"": { ""interval"": ""P1D""}
-                    }
-                    ";
+                        {
+                            ""description"": ""indexer for azure blob storage"",
+                            ""dataSourceName"": """ + dataSourceName + @""",
+                            ""targetIndexName"": """ + indexName + @""",
+                            ""schedule"": { ""interval"": ""P1D""}
+                        }
+                   ";
         }
     }
 }
